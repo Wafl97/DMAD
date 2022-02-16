@@ -1,7 +1,5 @@
 # DM
 
-# L1
-
 # Termanology
 
 term | describtion
@@ -18,6 +16,11 @@ Contradicion | A compound proposition that is always false, no matter the values
 Contingency | A compund proposition what is neither a tautology nor a contradition
 Satisfiable | When it is posible to assign variables of a compound propositions to make the it true
 Unsatisfiable | When it is not posible to assign variables of a compound propositions to make the it true
+Predicate Logic | Statements involving variables $P(x)$
+Quantification | Create a proposition from a propositional function
+Universal Quantifier | $P(x)$ for all values of $x$ in the domain
+Existential quantifier | There exists an element $x$ in the domain such that $P(x)$ 
+
 
 # Symbology
 
@@ -39,7 +42,8 @@ $\neg{q}\rightarrow{\neg{p}}$ | Contrapositive
 $\neg{p}\rightarrow{\neg{q}}$ | Inverse
 ${p}\leftrightarrow{q}$ | Biconditional statement ($p$ if and only if $q$)
 ${p}\equiv{q}$ | Logically equivalent
-
+$\forall{xP(x)}$ | Universal quantifier (for all)
+$\exists{xP(x)}$ | Existential quantifier (there exists)
 
 # Precedence
 
@@ -117,9 +121,9 @@ $p$ | $\neg{p}$ | ${p}\vee{\neg{p}}$ | ${p}\wedge{\neg{p}}$
 T | F | T | F
 F | T | T | F
 
-# Logical Equivalences
-
 ${p}\leftrightarrow{q}$ is a tautology
+
+# Logical Equivalences
 
 equivalence | name
 :--: | ---
@@ -150,3 +154,46 @@ $\wedge_{j=1}^{n}{p_j} = p_1\wedge{p_2}\wedge{...}\wedge{p_n}$
 $\neg{(\vee_{j=1}^{n}{p_j})}\equiv{\wedge_{j=1}^{n}{\neg{p_j}}}$
 
 $\neg{(\wedge_{j=1}^{n}{p_j})}\equiv{\vee_{j=1}^{n}{\neg{p_j}}}$
+
+## Quantifiers
+
+statment | when true | when false
+---|---|---
+$\forall x P(x)$ | $P(x)$ is true for every $x$ | There is an $x$ where $P(x)$ is false
+$\exists x P(x)$ | There is an $x$ where $P(x)$ is true | $P(x)$ is false for every $x$
+$\exists !xP(x)$ | There is a unique $x$ where $P(x)$ is true | More than one $x$ where $P(x)$ is true or $P(x)$ is false for every $x$
+
+## De Morgan’s Laws for Quantifiers.
+
+negation | equivalant statment | then true | when false
+---|---|---|---
+$\neg \exists x P(x)$ | $\forall x \neg P(x)$ | For every $x$, $P(x)$ is false | Ther is an $x$ where $P(x)$ is true
+$\neg \forall x P(x)$ | $\exists x \neg P(x)$ | There is an $x$ where $P(x)$ is false | $P(x)$ is true for every $x$
+
+## Quantifications of two variables
+
+statement | when true | when false
+---|---|---
+$\forall x \forall y P(x,y)$ | $P(x,y)$ is true for every pari $x,y$ | There is a pair $x,y$ for which $P(x,y)$ is false
+$\forall y \forall x P(x,y)$ | $P(x,y)$ is true for every pari $x,y$ | There is a pair $x,y$ for which $P(x,y)$ is false
+$\forall x \exists y P(x,y)$ | For every $x$ there is a $y$ for which $P(x,y)$ is true | Ther is an $x$ such that $P(x,y)$ if false for evey $y$
+$\exists x \forall y P(x,y)$ | There is an $x$ for which $P(x,y)$ is true for every $y$ | For every $x$ there is a $y$ for which $P(x,y)$ is false
+$\exists x \exists y P(x,y)$ | There is a pair $x,y$ for which $P(x,y)$ is true | $P(x,y)$ is false for every pair $x,y$
+$\exists y \exists x P(x,y)$ | There is a pair $x,y$ for which $P(x,y)$ is true | $P(x,y)$ is false for every pair $x,y$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
