@@ -12,7 +12,7 @@ symbol | describtion
 :---: | ---
 $O$ | Same as $\le$ (O) 
 $\Omega$ | Same as $\ge$ (Omega)
-$\Theta$ | Same aa $=$ (Theta)
+$\Theta$ | Same as $=$ (Theta)
 $o$ | Same as $<$ (Lille o)
 $\omega$ | Same as $>$ (Lille omega)
 
@@ -37,9 +37,9 @@ for j = 2 to A.length
     // Insert A[j] into the sorted sequence A[1..j - 1]
     i = j - 1
     while i > 0 and A[i] > kay
-        A[i | 1] = A [i]
+        A[i + 1] = A [i]
         i = i - 1
-    A[i + 1] = keu
+    A[i + 1] = key
 ```
 
 ### Java
