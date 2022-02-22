@@ -67,7 +67,7 @@ for(int j = 1; j < A.size(); j++) {
 ### Sudo code
 
 ```
-Marge(A,left,middle,right)
+Merge(A,left,middle,right)
     n_1 = middle - left + 1
     n_2 = right - middle
     let L[1..n_1 + 1] and R[1..n_2 + 1] be new arrays
