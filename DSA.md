@@ -29,7 +29,7 @@ Outpur: A permutation (reordering) $\{a_1,a_2,...,a_n\}$ o the input sequnce suc
 - Best case: $O(n)$
 - Worst case: $O(n^2)$
 
-### Sudo code
+### Pseudo code
 
 ```
 for j = 2 to A.length
@@ -64,7 +64,7 @@ for(int j = 1; j < A.size(); j++) {
 - Best case: $O(n log n)$
 - Worst case: $O(n log n)$
 
-### Sudo code
+### Pseudo code
 
 ```
 Merge(A,left,middle,right)
@@ -165,7 +165,7 @@ private static void mergeSort(ArrayList<Integer> A, int left, int right) {
 - Worst case: $O(n^2)$
 - Best case: $O(n)$
 
-### Sudo code
+### Pseudo code
 
 ```
 for i = 1 to A.length
@@ -191,4 +191,59 @@ private static void swap(ArrayList<Integer> A, int i, int j) {
     A.set(i,A.get(j));
     A.set(j,temp);
 }
+```
+
+
+## Quick sort
+
+
+### Big O
+
+- Worst case:
+- Best case:
+
+### Pseudo code
+
+```
+Quick-sort(A,p,r)
+    if p < r
+        q = PARTITION(A,p,r)
+        QUICKSORT(A,p,q-1)
+        QUICKSORT(A,q+1,r)
+
+
+Partition(A,p,r)
+    x = A[r]
+    i = p - 1
+    for j = p to r - 1
+        if A[j] <= x
+            i = i + 1
+            exchange A[i] with A[j]
+    exchange A[i + 1] with A[r]
+    return i + 1
+```
+
+### Java
+
+
+```java
+private static void quickSort(ArrayList<Integer> A, int p, int r) {
+        if (p < r) {
+            int q = partition(A,p,r);
+            quickSort(A,p,q-1);
+            quickSort(A,q+1,r);
+        }
+    }
+    private static int partition(ArrayList<Integer> A, int p, int r) {
+        int x = A.get(r);
+        int i = p - 1;
+        for (int j = p; j < r; j++) {
+            if (A.get(j) <= x) {
+                i++;
+                swap(A,i,j);
+            }
+        }
+        swap(A,i+1,r);
+        return i + 1;
+    }
 ```

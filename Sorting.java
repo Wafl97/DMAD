@@ -1,30 +1,44 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 
 public class Sorting {
 
-    private static int count = 0;
-
-    public static void main(String[] args) {
-        ArrayList<Integer> original = createRandomList(8);
-        ArrayList<Integer> copy;
-        System.out.println("Input:\t" + original.toString());
-        
-        copy = new ArrayList<>(original);
-        insertionSort(copy);
-        System.out.println("Output:\t" + copy.toString());
-
-        copy = new ArrayList<>(original);
-        mergeSort(copy,0, copy.size()-1);
-        System.out.println("Output:\t" + copy.toString());
-
-        copy = new ArrayList<>(original);
-        bubbleSort(copy);
-        System.out.println("Output:\t" + copy.toString());
+    public interface SortingAlgorithm {
+        void sort(ArrayList<Integer> list);
     }
 
-    private static ArrayList<Integer> createRandomList(int n) {
+    public interface RecursiveSortingAlgorithm {
+        void sort(ArrayList<Integer> list, int l, int r);
+    }
+
+    public static class Sorter {
+        public static void use(SortingAlgorithm sortingAlgorithm, String name, int n) {
+            ArrayList<Integer> list = createRandomList(n);
+            long start = System.currentTimeMillis();
+            sortingAlgorithm.sort(list);
+            System.out.println("Time: " + (System.currentTimeMillis() - start) + "ms\tWith " + name + " Sort");
+        }
+
+        public static void use(RecursiveSortingAlgorithm sortingAlgorithm, String name, int n) {
+            ArrayList<Integer> list = createRandomList(n);
+            long start = System.currentTimeMillis();
+            sortingAlgorithm.sort(list, 0, list.size()-1);
+            System.out.println("Time: " + (System.currentTimeMillis() - start) + "ms\tWith " + name + " Sort");
+        }
+    }
+
+    public static void main(String[] args) {
+        int n = Integer.parseInt(args[0]);
+        System.out.println("n = " + n);
+
+        Sorter.use(Sorting::insertionSort,"Insertion", n);
+        Sorter.use(Sorting::mergeSort, "Merge", n);
+        Sorter.use(Sorting::bubbleSort,"Bubble", n);
+        Sorter.use(Sorting::quickSort,"Quick", n);
+        //Sorter.use(list -> heapSort(list), n);
+    }
+
+    public static ArrayList<Integer> createRandomList(int n) {
         ArrayList<Integer> list = new ArrayList<>();
         for(int i = 0; i < n; i++){
             list.add(i);
@@ -35,7 +49,7 @@ public class Sorting {
 
     //O(n^2) worst case
     //O(n) best case
-    private static void insertionSort(ArrayList<Integer> A) {
+    public static void insertionSort(ArrayList<Integer> A) {
         for(int j = 1; j < A.size(); j++) {
             int key = A.get(j);
             int i = j - 1;
@@ -48,7 +62,7 @@ public class Sorting {
     }
 
     //O(n log n) worst and best case
-    private static void mergeSort(ArrayList<Integer> A, int left, int right) {
+    public static void mergeSort(ArrayList<Integer> A, int left, int right) {
         if(left < right) {
             int middle = (int)Math.floor((left + right) / 2f);
             mergeSort(A,left,middle);
@@ -56,7 +70,7 @@ public class Sorting {
             merge(A,left,middle,right);
         }
     }
-    private static void merge(ArrayList<Integer> A, int left, int middle, int right) {
+    public static void merge(ArrayList<Integer> A, int left, int middle, int right) {
         int n1 = middle - left + 1;
         int n2 = right - middle;
         ArrayList<Integer> L = new ArrayList<>();
@@ -91,7 +105,7 @@ public class Sorting {
     
     //O(n^2) worst case
     //O(n) best case
-    private static void bubbleSort(ArrayList<Integer> A) {
+    public static void bubbleSort(ArrayList<Integer> A) {
         for(int i = 0; i < A.size(); i++) {
             for(int j = A.size() - 1; j > i; j--) {
                 if(A.get(j) < A.get(j - 1)) {
@@ -100,9 +114,32 @@ public class Sorting {
             }
         }
     }
-    private static void swap(ArrayList<Integer> A, int i, int j) {
+    public static void swap(ArrayList<Integer> A, int i, int j) {
         int temp = A.get(i);
         A.set(i,A.get(j));
         A.set(j,temp);
+    }
+
+
+    //O(n^2) worst case
+    //O(n log n) best case
+    public static void quickSort(ArrayList<Integer> A, int p, int r) {
+        if (p < r) {
+            int q = partition(A,p,r);
+            quickSort(A,p,q-1);
+            quickSort(A,q+1,r);
+        }
+    }
+    public static int partition(ArrayList<Integer> A, int p, int r) {
+        int x = A.get(r);
+        int i = p - 1;
+        for (int j = p; j < r; j++) {
+            if (A.get(j) <= x) {
+                i++;
+                swap(A,i,j);
+            }
+        }
+        swap(A,i+1,r);
+        return i + 1;
     }
 }

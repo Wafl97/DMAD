@@ -182,7 +182,19 @@ $\exists x \exists y P(x,y)$ | There is a pair $x,y$ for which $P(x,y)$ is true 
 $\exists y \exists x P(x,y)$ | There is a pair $x,y$ for which $P(x,y)$ is true | $P(x,y)$ is false for every pair $x,y$
 
 
+# Proofs
 
+## Direct proof
+
+$p \Rightarrow q$
+
+## Proof by Contraposition
+
+$(p \Rightarrow q) \equiv (\lnot q \Rightarrow \lnot p)$
+
+## Proof by Contradiction
+
+$(\lnot p \Rightarrow F) \Rightarrow p$
 
 
 
