@@ -1,37 +1,38 @@
 # AD
 
-# Termanology
+## Termanology
 
 term | describtion
 --- | ---
 Algorithm | A sequence of computational steps that transforms the input into the output
 
-# Notation
+## Notation
 
 symbol | describtion
 :---: | ---
-$O$ | Same as $\le$ (O) 
+$O$ | Same as $\le$ (O)
 $\Omega$ | Same as $\ge$ (Omega)
 $\Theta$ | Same as $=$ (Theta)
 $o$ | Same as $<$ (Lille o)
 $\omega$ | Same as $>$ (Lille omega)
 
-
-# Sorting
+## Sorting
 
 Input: A sequence of $n$ numbers $\{a_1,a_2,...,a_n\}$
 Outpur: A permutation (reordering) $\{a_1,a_2,...,a_n\}$ o the input sequnce such that $a'_1 \le a'_2 \le ... \le a'_n$
 
-## Insertion sort
+### Insertion sort
 
-### Big O
+Big O
 
 - Best case: $O(n)$
 - Worst case: $O(n^2)$
 
-### Pseudo code
+---
 
-```
+Pseudo code
+
+```text
 for j = 2 to A.length
     key = A[j]
     // Insert A[j] into the sorted sequence A[1..j - 1]
@@ -42,7 +43,9 @@ for j = 2 to A.length
     A[i + 1] = key
 ```
 
-### Java
+---
+
+Java
 
 ```java
 for(int j = 1; j < A.size(); j++) {
@@ -56,17 +59,18 @@ for(int j = 1; j < A.size(); j++) {
 }
 ```
 
+### Merge sort
 
-## Merge sort
-
-### Big O
+Big O
 
 - Best case: $O(n log n)$
 - Worst case: $O(n log n)$
 
-### Pseudo code
+---
 
-```
+Pseudo code
+
+```text
 Merge(A,left,middle,right)
     n_1 = middle - left + 1
     n_2 = right - middle
@@ -107,7 +111,9 @@ Merge-Sort(A,left,right)
         Merge(A,left,middle,right)
 ```
 
-### Java
+---
+
+Java
 
 ```java
 private static void merge(ArrayList<Integer> A, int left, int middle, int right) {
@@ -158,23 +164,27 @@ private static void mergeSort(ArrayList<Integer> A, int left, int right) {
 }
 ```
 
-## Bubble sort
+### Bubble sort
 
-### Big O
+Big O
 
 - Worst case: $O(n^2)$
 - Best case: $O(n)$
 
-### Pseudo code
+---
 
-```
+Pseudo code
+
+```text
 for i = 1 to A.length
     for j = A.length - 1 downto i
         if A[j] < A[j - 1]
             swap A[j] and A[j - 1]
 ```
 
-### Java
+---
+
+Java
 
 ```java
 private static void bubbleSort(ArrayList<Integer> A) {
@@ -193,18 +203,18 @@ private static void swap(ArrayList<Integer> A, int i, int j) {
 }
 ```
 
-
 ## Quick sort
 
-
-### Big O
+Big O
 
 - Worst case:
 - Best case:
 
-### Pseudo code
+---
 
-```
+Pseudo code
+
+```text
 Quick-sort(A,p,r)
     if p < r
         q = PARTITION(A,p,r)
@@ -223,8 +233,9 @@ Partition(A,p,r)
     return i + 1
 ```
 
-### Java
+---
 
+Java
 
 ```java
 private static void quickSort(ArrayList<Integer> A, int p, int r) {
@@ -246,4 +257,54 @@ private static void quickSort(ArrayList<Integer> A, int p, int r) {
         swap(A,i+1,r);
         return i + 1;
     }
+```
+
+## Counting sort
+
+Big O
+
+---
+
+Pseudo code
+
+```text
+COUNTING-SORT(A,B,k)
+    for i = 0 to k
+        C[i] = 0
+    for j = 1 to A.length
+        C[A[j]]++
+    for i = 1 to k
+        C[i] = C[i] + C [i - 1]
+    for j = A.length downto 1
+        B[C[A[j]]] = A[j]
+        C[A[j]] = C[A[j]] - 1
+```
+
+---
+
+Java
+
+```java
+public static void countingSort(ArrayList<Integer> A) {
+    int k = A.size()-1;
+    ArrayList<Integer> B = new ArrayList<>();
+    ArrayList<Integer> C = new ArrayList<>();
+    for (int i = 0; i <= k; i++) {
+        C.add(0);
+    }
+    for (int i = 0; i < A.size(); i++) {
+        B.add(0);
+    }
+    for (int j = 0; j < A.size(); j++) {
+        C.set(A.get(j), C.get(A.get(j)) + 1);
+    }
+    for (int i = 1; i <= k; i++) {
+        C.set(i, C.get(i) + C.get(i - 1));
+    }
+    for (int j = A.size() - 1; j >= 0; j--) {
+        B.set(C.get(A.get(j)) - 1, A.get(j));
+        C.set(A.get(j), C.get(A.get(j)) - 1);
+    }
+    A = B;
+}
 ```

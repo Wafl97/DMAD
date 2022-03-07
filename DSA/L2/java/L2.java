@@ -1,3 +1,5 @@
+package DSA.L2.java;
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -8,10 +10,10 @@ public class L2 {
     public static void main(String[] args) {
         int n = Integer.parseInt(args[0]);
         int value = Integer.parseInt(args[1]);
-        //testInsertionSort(n);
-        //testMergeSort(n);
-        //insertionSortCases(n);
-        //testBinarySearch(n,value);
+        testInsertionSort(n);
+        testMergeSort(n);
+        insertionSortCases(n);
+        testBinarySearch(n,value);
         testNewInsertionSort(n);
     }
 

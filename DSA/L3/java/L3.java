@@ -1,3 +1,5 @@
+package DSA.L3.java;
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -7,10 +9,23 @@ public class L3 {
 
     public static void main(String[] args) {
         int n = Integer.parseInt(args[0]);
+        testMergeSort(n);
+        testCountInv(n);
+    }
+
+    private static void testMergeSort(int n) {
+        ArrayList<Integer> list = createRandomArrayList(n);
+        System.out.println("IN:\t" + list);
         long start = System.currentTimeMillis();
+        mergeSort(list, 0, list.size()-1);
+        System.out.println("Time: " + (System.currentTimeMillis() - start) + " ms");
+        System.out.println("OUT\t" + list);
+    }
+
+    private static void testCountInv(int n) {
         ArrayList<Integer> list = createRandomArrayList(n);
         System.out.println(list);
-        //mergeSort(list,0,list.size()-1);
+        long start = System.currentTimeMillis();
         int inv = counsInv(list,0,list.size()-1);
         System.out.println("inv: " + inv);
         System.out.println(list);

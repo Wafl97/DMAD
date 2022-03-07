@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Random;
 
 public class Sorting {
 
@@ -13,32 +14,38 @@ public class Sorting {
 
     public static class Sorter {
         public static void use(SortingAlgorithm sortingAlgorithm, String name, int n) {
-            ArrayList<Integer> list = createRandomList(n);
+            System.out.print(name + " sort\t->\t");
+            ArrayList<Integer> list = createShuffledList(n);
             long start = System.currentTimeMillis();
             sortingAlgorithm.sort(list);
-            System.out.println("Time: " + (System.currentTimeMillis() - start) + "ms\tWith " + name + " Sort");
+            System.out.println((System.currentTimeMillis() - start) + "ms");          
         }
 
         public static void use(RecursiveSortingAlgorithm sortingAlgorithm, String name, int n) {
-            ArrayList<Integer> list = createRandomList(n);
+            System.out.print(name + " sort\t->\t");
+            ArrayList<Integer> list = createShuffledList(n);
             long start = System.currentTimeMillis();
             sortingAlgorithm.sort(list, 0, list.size()-1);
-            System.out.println("Time: " + (System.currentTimeMillis() - start) + "ms\tWith " + name + " Sort");
+            System.out.println((System.currentTimeMillis() - start) + "ms");         
         }
     }
+
+    public static Random r = new Random();
 
     public static void main(String[] args) {
         int n = Integer.parseInt(args[0]);
         System.out.println("n = " + n);
 
-        Sorter.use(Sorting::insertionSort,"Insertion", n);
+        Sorter.use(Sorting::insertionSort, "Insertion", n);
         Sorter.use(Sorting::mergeSort, "Merge", n);
-        Sorter.use(Sorting::bubbleSort,"Bubble", n);
-        Sorter.use(Sorting::quickSort,"Quick", n);
-        //Sorter.use(list -> heapSort(list), n);
+        Sorter.use(Sorting::bubbleSort, "Bubble", n);
+        Sorter.use(Sorting::quickSort, "Quick", n);
+        Sorter.use(Sorting::heapSort, "Heap", n); //TODO implement heap sort
+        Sorter.use(Sorting::countingSort, "Counting", n);
+        Sorter.use(Sorting::radixSort, "Radix", n); //TODO
     }
 
-    public static ArrayList<Integer> createRandomList(int n) {
+    public static ArrayList<Integer> createShuffledList(int n) {
         ArrayList<Integer> list = new ArrayList<>();
         for(int i = 0; i < n; i++){
             list.add(i);
@@ -47,8 +54,8 @@ public class Sorting {
         return list;
     }
 
-    //O(n^2) worst case
-    //O(n) best case
+    //(n^2) worst case
+    //(n) best case
     public static void insertionSort(ArrayList<Integer> A) {
         for(int j = 1; j < A.size(); j++) {
             int key = A.get(j);
@@ -61,7 +68,8 @@ public class Sorting {
         }
     }
 
-    //O(n log n) worst and best case
+    //(n log n) worst case
+    //(n log n) best case
     public static void mergeSort(ArrayList<Integer> A, int left, int right) {
         if(left < right) {
             int middle = (int)Math.floor((left + right) / 2f);
@@ -103,8 +111,8 @@ public class Sorting {
         }
     }
     
-    //O(n^2) worst case
-    //O(n) best case
+    //(n^2) worst case
+    //(n) best case
     public static void bubbleSort(ArrayList<Integer> A) {
         for(int i = 0; i < A.size(); i++) {
             for(int j = A.size() - 1; j > i; j--) {
@@ -121,8 +129,8 @@ public class Sorting {
     }
 
 
-    //O(n^2) worst case
-    //O(n log n) best case
+    //(n^2) worst case
+    //(n log n) best case
     public static void quickSort(ArrayList<Integer> A, int p, int r) {
         if (p < r) {
             int q = partition(A,p,r);
@@ -141,5 +149,39 @@ public class Sorting {
         }
         swap(A,i+1,r);
         return i + 1;
+    }
+
+    //(n log n) worst case
+    //(n log n) best case
+    public static void heapSort(ArrayList<Integer> A) {
+        System.out.print("Not yet implemented -> ");
+    }
+
+    //(n + k)
+    public static void countingSort(ArrayList<Integer> A) {
+        int k = A.size()-1;
+        ArrayList<Integer> B = new ArrayList<>();
+        ArrayList<Integer> C = new ArrayList<>();
+        for (int i = 0; i <= k; i++) {
+            C.add(0);
+        }
+        for (int i = 0; i < A.size(); i++) {
+            B.add(0);
+        }
+        for (int j = 0; j < A.size(); j++) {
+            C.set(A.get(j), C.get(A.get(j)) + 1);
+        }
+        for (int i = 1; i <= k; i++) {
+            C.set(i, C.get(i) + C.get(i - 1));
+        }
+        for (int j = A.size() - 1; j >= 0; j--) {
+            B.set(C.get(A.get(j)) - 1, A.get(j));
+            C.set(A.get(j), C.get(A.get(j)) - 1);
+        }
+        A = B;
+    }
+    
+    public static void radixSort(ArrayList<Integer> A) {
+        System.out.print("Not yet implemented -> ");
     }
 }

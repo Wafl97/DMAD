@@ -1,6 +1,6 @@
 # DM
 
-# Termanology
+## Termanology
 
 term | describtion
 --- | ---
@@ -19,10 +19,9 @@ Unsatisfiable | When it is not posible to assign variables of a compound proposi
 Predicate Logic | Statements involving variables $P(x)$
 Quantification | Create a proposition from a propositional function
 Universal Quantifier | $P(x)$ for all values of $x$ in the domain
-Existential quantifier | There exists an element $x$ in the domain such that $P(x)$ 
+Existential quantifier | There exists an element $x$ in the domain such that $P(x)$
 
-
-# Symbology
+## Symbology
 
 $p$ is a proposition
 
@@ -45,7 +44,7 @@ ${p}\equiv{q}$ | Logically equivalent
 $\forall{xP(x)}$ | Universal quantifier (for all)
 $\exists{xP(x)}$ | Existential quantifier (there exists)
 
-# Precedence
+## Precedence
 
 operator | precedence
 :---: | :---:
@@ -55,15 +54,14 @@ $\vee{}$ | 3
 $\rightarrow{}$ | 4
 $\leftrightarrow{}$ | 5
 
-
-# Negation
+## Negation
 
 $p$ | $\neg{p}$
 :---: | :---:
 T | F
 F | T
 
-# Conjunction
+## Conjunction
 
 $p$ | $q$ | ${p}\wedge{q}$
 :---: | :---: | :---:
@@ -72,7 +70,7 @@ T | F | F
 F | T | F
 F | F | F
 
-# Disjunction (Inclusive)
+## Disjunction (Inclusive)
 
 $p$ | $q$ | ${p}\vee{q}$
 :---: | :---: | :---:
@@ -81,7 +79,7 @@ T | F | T
 F | T | T
 F | F | F
 
-# Disjunction (Exclusive)
+## Disjunction (Exclusive)
 
 $p$ | $q$ | ${p}\vee{q}$
 :---: | :---: | :---:
@@ -90,7 +88,7 @@ T | F | T
 F | T | T
 F | F | F
 
-# Conditional Statement
+## Conditional Statement
 
 $p$ is the hypothesis
 
@@ -103,8 +101,7 @@ T | F | F
 F | T | T
 F | F | T
 
-
-# Biconditional Statement
+## Biconditional Statement
 
 $p$ | $q$ | ${p}\leftrightarrow{q}$
 :---: | :---: | :---:
@@ -113,8 +110,7 @@ T | F | F
 F | T | F
 F | F | T
 
-
-# Tautology and Contradiction
+## Tautology and Contradiction
 
 $p$ | $\neg{p}$ | ${p}\vee{\neg{p}}$ | ${p}\wedge{\neg{p}}$
 :---: | :---: | :---: | :---:
@@ -123,7 +119,7 @@ F | T | T | F
 
 ${p}\leftrightarrow{q}$ is a tautology
 
-# Logical Equivalences
+## Logical Equivalences
 
 equivalence | name
 :--: | ---
@@ -155,7 +151,7 @@ $\neg{(\vee_{j=1}^{n}{p_j})}\equiv{\wedge_{j=1}^{n}{\neg{p_j}}}$
 
 $\neg{(\wedge_{j=1}^{n}{p_j})}\equiv{\vee_{j=1}^{n}{\neg{p_j}}}$
 
-## Quantifiers
+### Quantifiers
 
 statment | when true | when false
 ---|---|---
@@ -163,14 +159,14 @@ $\forall x P(x)$ | $P(x)$ is true for every $x$ | There is an $x$ where $P(x)$ i
 $\exists x P(x)$ | There is an $x$ where $P(x)$ is true | $P(x)$ is false for every $x$
 $\exists !xP(x)$ | There is a unique $x$ where $P(x)$ is true | More than one $x$ where $P(x)$ is true or $P(x)$ is false for every $x$
 
-## De Morgan’s Laws for Quantifiers.
+### De Morgan’s Laws for Quantifiers
 
 negation | equivalant statment | then true | when false
 ---|---|---|---
 $\neg \exists x P(x)$ | $\forall x \neg P(x)$ | For every $x$, $P(x)$ is false | Ther is an $x$ where $P(x)$ is true
 $\neg \forall x P(x)$ | $\exists x \neg P(x)$ | There is an $x$ where $P(x)$ is false | $P(x)$ is true for every $x$
 
-## Quantifications of two variables
+### Quantifications of two variables
 
 statement | when true | when false
 ---|---|---
@@ -181,31 +177,28 @@ $\exists x \forall y P(x,y)$ | There is an $x$ for which $P(x,y)$ is true for ev
 $\exists x \exists y P(x,y)$ | There is a pair $x,y$ for which $P(x,y)$ is true | $P(x,y)$ is false for every pair $x,y$
 $\exists y \exists x P(x,y)$ | There is a pair $x,y$ for which $P(x,y)$ is true | $P(x,y)$ is false for every pair $x,y$
 
+## Proofs
 
-# Proofs
-
-## Direct proof
+### Direct proof
 
 $p \Rightarrow q$
 
-## Proof by Contraposition
+### Proof by Contraposition
 
 $(p \Rightarrow q) \equiv (\lnot q \Rightarrow \lnot p)$
 
-## Proof by Contradiction
+### Proof by Contradiction
 
 $(\lnot p \Rightarrow F) \Rightarrow p$
 
+### Proof by Induction
 
+Basis:
 
+$P(0): 2^0 = 2^{0+1} - 1 = 1$
 
+$P(k):2^0 + 2^1 + ... + 2^{k-1} + 2^k = 2^{k+1} - 1$
 
+$P(k+1):2^0 + 2^1 + ... + 2^{k-1} + 2^k + 2^{k+1} = 2^{k+1} + 2^{k+1} - 1 = 2^{k+2} - 1$
 
-
-
-
-
-
-
-
-
+$\forall k \in \N: (P(k) \Rightarrow P(k+1))$
