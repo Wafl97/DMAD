@@ -16,6 +16,30 @@ $\Theta$ | Same as $=$ (Theta)
 $o$ | Same as $<$ (Lille o)
 $\omega$ | Same as $>$ (Lille omega)
 
+## DataStructures
+
+### Binary-Search-Trees
+
+### Red-Black trees
+
+1. Every node is either red or black.
+2. The root is black.
+3. Every leaf (NIL) is black.
+4. If a node is red, then both its children are black.
+5. For each node, all simple paths from the node to descendant leaves contain the
+same number of black nodes.
+
+#### Insert z
+
+- All new nodes are red
+
+case 0: tree is empty
+case 1: uncle is red -> color flip
+case 2: uncle is black and path is right, right -> left rotate
+case 3: uncle is black and path is left, left -> right rotate
+case 4: uncle is black and path is left, right -> right-left rotate
+case 5: uncle is black and path is right, left -> left-right rotate
+
 ## Sorting
 
 Input: A sequence of $n$ numbers $\{a_1,a_2,...,a_n\}$
@@ -63,8 +87,8 @@ for(int j = 1; j < A.size(); j++) {
 
 Big O
 
-- Best case: $O(n log n)$
-- Worst case: $O(n log n)$
+- Best case: $O(n \log n)$
+- Worst case: $O(n \log n)$
 
 ---
 
@@ -203,12 +227,12 @@ private static void swap(ArrayList<Integer> A, int i, int j) {
 }
 ```
 
-## Quick sort
+### Quick sort
 
 Big O
 
-- Worst case:
-- Best case:
+- Worst case: $O(n^2)$
+- Best case: $O(n \log n)$
 
 ---
 
@@ -259,7 +283,58 @@ private static void quickSort(ArrayList<Integer> A, int p, int r) {
     }
 ```
 
-## Counting sort
+### Heap sort
+
+Big O
+
+- Worst case: $O(n \log n)$
+- Best case: $O(n \log n)$ (distinct keys)
+- Best case: $O(n)$ (equal keys)
+
+---
+
+Pseudo code
+
+```text
+PARRENT(i)
+    return floor(i/2)
+
+LEFT(i)
+    return 2i
+
+RIGHT(i)
+    return 2i + 1
+
+MAX-HEAPIFY(A,i)
+    l = LEFT(i)
+    r = RIGHT(i)
+    if l <= A.heap-size and A[l] > A[i]
+        largest = l
+    else
+        largest = i
+    if r <= A.heap-size and A[r] > A[largest]
+        largest = r
+    if largest =/= i
+        exchange A[i] with A[largest]
+        MAX-HEAPIFY(A,largest)
+
+HEAPSORT(A)
+    BUILD-MAX-HEAP(A)
+    for i = A.length downto 2
+        exchange A[1] with A[i]
+        A.heap-size = A.heap-size - 1
+        MAX-HEAPIFY(A,1)
+```
+
+---
+
+Java
+
+```java
+
+```
+
+### Counting sort
 
 Big O
 
@@ -308,3 +383,18 @@ public static void countingSort(ArrayList<Integer> A) {
     A = B;
 }
 ```
+
+### Radix sort
+
+Big O
+
+- Worst case: $O(nk/d)$
+- Best case: $O(nk/d)$
+
+---
+
+Pseudo code
+
+---
+
+Java
