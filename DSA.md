@@ -37,8 +37,8 @@ case 0: tree is empty
 case 1: uncle is red -> color flip
 case 2: uncle is black and path is right, right -> left rotate
 case 3: uncle is black and path is left, left -> right rotate
-case 4: uncle is black and path is left, right -> right-left rotate
-case 5: uncle is black and path is right, left -> left-right rotate
+case 4: uncle is black and path is left, right -> left right rotate
+case 5: uncle is black and path is right, left -> right left rotate
 
 ## Sorting
 
