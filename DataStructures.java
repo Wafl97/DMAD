@@ -29,6 +29,18 @@ public class DataStructures {
         return new Heap(A);
     }
 
+    public static PriorityQueue createPrioityQueue(ArrayList<Integer> A) {
+        return new PriorityQueue(A);
+    }
+
+    public static BinarySearchTree createBinarySearchTree(ArrayList<Integer> A) {
+        return new BinarySearchTree(A);
+    }
+
+    public static RedBlackTree createRedBlackTree(ArrayList<Integer> A) {
+        return new RedBlackTree(A);
+    }
+
     public static class Heap implements DataStructure {
 
         public int heapSize;
@@ -113,35 +125,34 @@ public class DataStructures {
         }
     }
 
-    public static class PriorityQueue implements DataStructure {
-        private ArrayList<Integer> A;
-
-        PriorityQueue(ArrayList<Integer> A) {
-            this.A = A;
+    public static class PriorityQueue extends Heap {
+        //TODO
+        public PriorityQueue(ArrayList<Integer> A) {
+            super(A);
         }
 
-        public void build(ArrayList<Integer> A) {
-            heapify(A);
+        public void insert(int element) {
+
         }
 
-        public int extractMax() {
+        public int extract() {
             return -1;
         }
+    }
 
-        public void insert(int n) {
-
-        }
-
-        public void increaseKey(int index, int value) {
-            
-        }
-
-        private void heapify(ArrayList<Integer> A) {
-
-        }
-
-        public void display() {
-            System.out.println(this.A);
+    public static class BinarySearchTree implements DataStructure{
+        private ArrayList<Integer> A;
+        //TODO
+        public BinarySearchTree(ArrayList<Integer> A) {
+            this.A = A;
         }
     }
+
+    public static class RedBlackTree extends BinarySearchTree {
+        //TODO
+        public RedBlackTree(ArrayList<Integer> A) {
+            super(A);
+        }
+    }
+
 }
