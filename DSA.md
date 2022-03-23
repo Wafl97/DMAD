@@ -18,6 +18,8 @@ $\omega$ | Same as $>$ (Lille omega)
 
 ## DataStructures
 
+### Heap
+
 ### Binary-Search-Trees
 
 ### Red-Black trees
