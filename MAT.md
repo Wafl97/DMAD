@@ -20,6 +20,10 @@ Predicate Logic | Statements involving variables $P(x)$
 Quantification | Create a proposition from a propositional function
 Universal Quantifier | $P(x)$ for all values of $x$ in the domain
 Existential quantifier | There exists an element $x$ in the domain such that $P(x)$
+Reflecsive | Every number is in a pair with it self $(a,a) \in R : \forall a \in A$
+Symmetrical | A pair has a mirror version. $(a,b) \in R \Rightarrow (b,a) \in R : \forall a,b \in A$
+Antisymmetrical | The only symmetrical aspect is that the a number is in a pair with it self $(a,b) \in R \land (b,a) \in R \Rightarrow a=b : \forall a,b \in A$
+Transitive | If we can go from a to b and b to c, as well as a to c $(a,b) \in R \land (b,c) \in R \Rightarrow (a,c) \in R : \forall a,b,c \in A$
 
 ## Symbology
 
@@ -202,3 +206,21 @@ $P(k):2^0 + 2^1 + ... + 2^{k-1} + 2^k = 2^{k+1} - 1$
 $P(k+1):2^0 + 2^1 + ... + 2^{k-1} + 2^k + 2^{k+1} = 2^{k+1} + 2^{k+1} - 1 = 2^{k+2} - 1$
 
 $\forall k \in \N: (P(k) \Rightarrow P(k+1))$
+
+## Properties
+
+### Reflecsive
+
+$(a,a) \in R : \forall a \in A$
+
+### Symmetrical
+
+$(a,b) \in R \Rightarrow (b,a) \in R : \forall a,b \in A$
+
+### Antisymmetrical
+
+$(a,b) \in R \land (b,a) \in R \Rightarrow a=b : \forall a,b \in A$
+
+### Transitive
+
+$(a,b) \in R \land (b,c) \in R \Rightarrow (a,c) \in R : \forall a,b,c \in A$
