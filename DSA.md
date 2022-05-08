@@ -16,6 +16,24 @@ $\Theta$ | Same as $=$ (Theta)
 $o$ | Same as $<$ (Lille o)
 $\omega$ | Same as $>$ (Lille omega)
 
+## Asymtotic
+
+### Recursion Tree Method
+
+$T(n) = aT(n/b) + f(n)$
+
+$a = fanout$
+
+$n/b^{height} = 1 \Leftrightarrow b^{height} = n \Leftrightarrow height = \log_b n$
+
+### Master Theorom
+
+$T(n) = aT(n/b) + f(n)$
+
+1. If $f(n) = O(n^{\log_b a-\epsilon})$ for some constant $\epsilon > 0$, then $T(n) = \Theta(n^{\log_b a})$.
+2. If $f(n) = \Theta(n^{\log_b a})$, then $T(n) = \Theta(n^{\log_b a} \log n)$.
+3. If $f(n) = \Omega(n^{\log _b a + \epsilon})$ for some constant $\epsilon > 0$, then is $a f(n/b) \le c f(n)$ for some constant $c < 1$ and all sufficiently large $n$, then $T(n) = \Theta(f(n))$
+
 ## DataStructures
 
 ### Heap
