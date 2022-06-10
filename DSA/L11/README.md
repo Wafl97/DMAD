@@ -74,6 +74,8 @@ What is an optimal Huffman code for the following set of frequencies, based on t
 
 $$a: 1, b: 1, c: 2, d: 3, e: 5, f: 8, g: 13, h: 21$$
 
+![tree](5.png)
+
 - $a = 0000000$
 - $b = 0000001$
 - $c = 000001$
