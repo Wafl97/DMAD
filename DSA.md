@@ -34,6 +34,20 @@ $T(n) = aT(n/b) + f(n)$
 2. If $f(n) = \Theta(n^{\log_b a})$, then $T(n) = \Theta(n^{\log_b a} \log n)$.
 3. If $f(n) = \Omega(n^{\log _b a + \epsilon})$ for some constant $\epsilon > 0$, then is $a f(n/b) \le c f(n)$ for some constant $c < 1$ and all sufficiently large $n$, then $T(n) = \Theta(f(n))$
 
+### Hashing
+
+#### Linear
+
+$$h(k,i) = (h'(k) + i) \mod m$$
+
+#### Quadratic
+
+$$h(k,i) = (h'(k) + c_1 \cdot i + c_2 \cdot i^2) \mod m$$
+
+#### Double
+
+$$h(k,i) = (h'(k) + i \cdot h''(k)) \mod m$$
+
 ## DataStructures
 
 ### Heap
@@ -357,6 +371,9 @@ Java
 ### Counting sort
 
 Big O
+
+- Worst case: $O(n)$
+- Best case: $O(n)$
 
 ---
 
