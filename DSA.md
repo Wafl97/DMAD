@@ -435,3 +435,39 @@ Pseudo code
 ---
 
 Java
+
+### DFS
+
+Big O
+
+$O(n + m)$
+
+### BFS
+
+Big O
+
+$O(n + m)$
+
+### Kruskal
+
+Big O
+
+$O(m \log n)$
+
+### Prim-Jarnik
+
+Big O
+
+$O(m \log n)$
+
+### Floyd-Warshall
+
+Big O
+
+$O()$
+
+### Dijkstra
+
+Big O
+
+$O()$
