@@ -266,7 +266,7 @@ Forklar, hvordan den sorterede følge kan aflæses fra datastrukturen og udskriv
 
 - Vi kan anvende et Rød-Sort træ. I hver knude anvendes en tæller for hvor mange gange et tal gentages. Her vil det kun være $O(\log n)$ knuder.
 
-- Ved brug af en tæller for træet en højde på $O(\log(\log n))$, og når der så sættes $n$ tal ind giver det en samlet køretid på $\Theate(n \log (\log n))$
+- Ved brug af en tæller for træet en højde på $O(\log(\log n))$, og når der så sættes $n$ tal ind giver det en samlet køretid på $\Theta(n \log (\log n))$
 
 - Aflæsninen af Rød-Sort træet vil forgå ved at bruge INORDER, men når en knude besøges skrives et tal ud det antal gange angivet af tælleren. INORDER tager $O(k)$, hvor $k$ er antallet af knuder. Det skal i alt udskrives $n$ tal, så køretiden bliver $\Theta(n)$.
 

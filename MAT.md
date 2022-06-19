@@ -224,3 +224,15 @@ $(a,b) \in R \land (b,a) \in R \Rightarrow a=b : \forall a,b \in A$
 ### Transitive
 
 $(a,b) \in R \land (b,c) \in R \Rightarrow (a,c) \in R : \forall a,b,c \in A$
+
+### Equivalence relation
+
+- Symmetrical, Transitive, and Transitive
+
+### Equivalence classes
+
+$[n]_R=\{a,b,c,d,...\}$
+
+### Partiel orderings (Poset)
+
+- Reflexive, Antisymmetrical, and Transitive
